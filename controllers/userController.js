@@ -42,6 +42,7 @@ exports.signup = async (req, res) => {
         message: "Error creating user"
     });
 }
+};
 
 // =====================
 // LOGIN
@@ -88,4 +89,3 @@ exports.login = async (req, res) => {
     });
   }
 };
-}
