@@ -29,10 +29,19 @@ exports.signup = async (req, res) => {
     res.json({ message: "User created successfully" });
 
   } catch (error) {
-    console.error("ERROR:", error);
-    res.status(500).json({ message: "Error creating user" });
-  }
-};
+    console.log("ERROR:", error);
+
+    // Duplicate email
+    if (error.code === 11000) {
+        return res.status(400).json({
+            message: "Email already exists. Please log in or use another email."
+        });
+    }
+
+    res.status(500).json({
+        message: "Error creating user"
+    });
+}
 
 // =====================
 // LOGIN
@@ -79,3 +88,4 @@ exports.login = async (req, res) => {
     });
   }
 };
+}
