@@ -26,7 +26,9 @@ exports.signup = async (req, res) => {
 
     console.log("AFTER SAVE ✅");
 
-    res.json({ message: "User created successfully" });
+   return res.status(201).json({
+  message: "User created successfully"
+});
 
   } catch (error) {
   console.log("ERROR:", error);
